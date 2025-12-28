@@ -1,5 +1,9 @@
 import styled from "@emotion/styled"
+import { Button, Container, Grid, Typography } from "@mui/material"
 import type { CSSProperties } from "react"
+import TriangleParticles from "../../../../components/visual/TriangleParticles"
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const Hero = () => {
 
@@ -35,10 +39,10 @@ const Hero = () => {
     position: "relative" as CSSProperties["position"],
     overflow: "hidden",
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center" as CSSProperties["textAlign"],
-    color: "#fff",
+    //alignItems: "center",
+    //justifyContent: "center",
+    //textAlign: "center" as CSSProperties["textAlign"],
+    //color: "#fff",
 
     '&::after': {
       content: '""',
@@ -60,10 +64,35 @@ const Hero = () => {
   return (
     <>
       <StyledHero>
-        <div>
-          <h1>Daniel Araújo</h1>
-          <p>Desenvolvedor Web focado em experiências modernas</p>
-        </div>
+        <Container maxWidth="lg"> 
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Typography color="#fff" variant="h1" textAlign={"center"}>Daniel Araújo</Typography>
+              <Typography color="#ffff" variant="h5" textAlign={"center"}>Full Stack Developer</Typography>
+              <Grid container display={"flex"} justifyContent={"center"}>
+                <Grid size={{ xs: 12, md: 4 }} display={"flex"} justifyContent={"center"}>
+                  <Button>
+                    <InfoOutlinedIcon/>
+                    About me
+                  </Button>
+                </Grid>
+                <Grid size={{ xs: 12, md: 4 }} display={"flex"} justifyContent={"center"}>
+                  <Button>
+                    <CodeOutlinedIcon/>
+                    View Projects
+                 </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <TriangleParticles color="#ffffff" quantity={200}></TriangleParticles>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+            </Grid>
+          </Grid>
+        </Container>
       </StyledHero>
     </>
   )
