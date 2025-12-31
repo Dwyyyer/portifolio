@@ -19,9 +19,27 @@ const TriangleParticles = ({ color = "#ffffff", quantity = 80 }: TriangleParticl
     });
   }, []);
 
+  const particlesLoaded = async (container?: any) => {
+  if (container) {
+    container.actualOptions.fullScreen.enable = false;
+    await container.refresh(); 
+  }
+};
+
   const options: ISourceOptions = useMemo(() => ({
     fullScreen: { enable: false },
+    maintainAspectRatio: false,
     fpsLimit: 120,
+    resize: {
+      enable: true,
+      delay: 0,
+    },
+
+    background: {
+      color: {
+      value: "transparent",
+      },
+    },
     interactivity: {
       events: {
         onHover: { enable: true, mode: "push" },
@@ -36,7 +54,7 @@ const TriangleParticles = ({ color = "#ffffff", quantity = 80 }: TriangleParticl
         enable: true,
         color: color,
         distance: 150,
-        opacity: 0.4,
+        opacity: 0.2,
         width: 1,
         triangles: {
           enable: true,
@@ -75,13 +93,17 @@ const TriangleParticles = ({ color = "#ffffff", quantity = 80 }: TriangleParticl
       <Particles
         id="tsparticles"
         options={options}
+        particlesLoaded={particlesLoaded}
+        className="particles-container"
         style={{
+          display: "block",
           position: "absolute",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
-          zIndex: 1,
+          zIndex: -1,
+          inset: 0,
         }}
       />
     );

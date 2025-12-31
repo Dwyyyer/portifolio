@@ -1,92 +1,69 @@
 import styled from "@emotion/styled"
-import { Button, Container, Grid, Typography } from "@mui/material"
-import type { CSSProperties } from "react"
+import { Button, Container, Stack, Typography } from "@mui/material"
 import TriangleParticles from "../../../../components/visual/TriangleParticles"
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
+const StyledHero = styled("section")(({ theme }) => ({
+  width: "100%",
+  height: "100dvh",
+  position: "relative",
+  overflow: "hidden",
+  display: "flex",
+  alignItems: "center",
+
+  color: theme.palette.primary.main,
+
+  background: `linear-gradient(
+    120deg,
+    ${theme.palette.secondary.main},
+    #562e97ff,
+    ${theme.palette.background.default}
+  )`,
+  backgroundSize: "400% 400%",
+  animation: "gradientMove 10s ease infinite",
+
+  "@keyframes gradientMove": {
+    "0%": { backgroundPosition: "0% 50%" },
+    "50%": { backgroundPosition: "100% 50%" },
+    "100%": { backgroundPosition: "0% 50%" },
+  },
+}));
+
+const ParticlesWrapper = styled("div")({
+  position: "absolute",
+  inset: 0,
+  width: "100%",
+  height: "100%",
+  zIndex: 0,
+  pointerEvents: "none",
+});
+
 const Hero = () => {
-
-  const StyledHero = styled("div")(({ theme })=> ({
-    width: "100%",
-    height: "100vh",
-    //borderRadius: "5%",
-    color: theme.palette.primary.main,
-
-
-    background: `linear-gradient(
-      120deg,
-      ${theme.palette.secondary.main},
-      #562e97ff,
-      ${theme.palette.background.default}
-    )`,
-
-    backgroundSize: '400% 400%',
-    animation:"gradientMove 10s ease infinite",
-
-    "@keyframes gradientMove":{
-      "0%":{
-        backgroundPosition:"0% 50%"
-      },
-      "50%":{
-        backgroundPosition:"100% 50%"
-      },
-      "100%":{
-        backgroundPosition:"0% 50%"
-      }
-    },
-
-    position: "relative" as CSSProperties["position"],
-    overflow: "hidden",
-    display: "flex",
-    //alignItems: "center",
-    //justifyContent: "center",
-    //textAlign: "center" as CSSProperties["textAlign"],
-    //color: "#fff",
-
-    '&::after': {
-      content: '""',
-      position: 'absolute' as CSSProperties["position"],
-      inset: 0,
-
-      background: 'inherit',
-      filter: 'blur(40px)',
-      transform: 'scale(1.2)',
-      zIndex: 0,
-    },
-
-    '& > *': {
-      position: 'relative' as CSSProperties["position"],
-      zIndex: 1,
-    },
-  }))
-
   return (
     <>
       <StyledHero>
-        <Container maxWidth="lg"> 
-          <Grid container spacing={3}>
-            <Grid size={{ xs: 12, md: 6}}>
-              <Typography variant="h2" textAlign={"center"}>Daniel Araújo</Typography>
-              <Typography variant="h5" textAlign={"center"}>Full Stack Developer</Typography>
-              <Grid container display={"flex"} justifyContent={"center"}>
-                <Grid size={{ xs: 12, md: 4 }} display={"flex"} justifyContent={"center"}>
-                  <Button startIcon={ <InfoOutlinedIcon/> } variant="outlined">
-                    About me
-                  </Button>
-                </Grid>
-                <Grid size={{ xs: 12, md: 4 }} display={"flex"} justifyContent={"center"}>
-                  <Button startIcon={ <CodeOutlinedIcon/> } variant="outlined">
-                    My Projects
-                 </Button>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <TriangleParticles color="#ffffff" quantity={200} />
-            </Grid>
-          </Grid>
-        </Container>
+          <ParticlesWrapper>
+            <TriangleParticles color="#ffffff" quantity={100} />
+          </ParticlesWrapper>
+          <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}> 
+            <Stack spacing={3} alignItems="center">
+              <Typography variant="h1" textAlign="center">
+                Daniel T. Araújo
+              </Typography>
+              <Typography variant="h4" textAlign="center">
+                Full Stack Developer
+              </Typography>
+              <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
+                <Button startIcon={<InfoOutlinedIcon />} variant="outlined">
+                  About me
+                </Button>
+                <Button startIcon={<CodeOutlinedIcon />} variant="outlined">
+                  My Projects
+                </Button>
+              </Stack>
+            </Stack>
+          </Container>
       </StyledHero>
     </>
   )
