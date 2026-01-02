@@ -10,18 +10,18 @@ let theme = createTheme({
         },
 
         secondary: {
-            //main: "#562e97ff",
-            main: "#c80ec2ff",
+            main: "#562e97ff",
+            //main: "#c80ec2ff",
         },
 
         background: {
-            default: "#0f2027",
-            paper: "#141e30",
+            default: "#000",
+            paper: "transparent",
         },
 
         text: {
             primary: "#ffffff",
-            secondary: "#b5b5c3",
+            secondary: "#000",
         },
     },
 

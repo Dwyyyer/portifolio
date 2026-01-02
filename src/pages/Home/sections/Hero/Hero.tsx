@@ -12,12 +12,10 @@ const StyledHero = styled("section")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
 
-  color: theme.palette.primary.main,
-
   background: `linear-gradient(
     120deg,
-    ${theme.palette.secondary.main},
-    #562e97ff,
+    #c80ec2ff,
+    #3c1875ff,
     ${theme.palette.background.default}
   )`,
   backgroundSize: "400% 400%",
