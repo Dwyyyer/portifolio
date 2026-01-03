@@ -1,8 +1,11 @@
 import styled from "@emotion/styled"
 import { Button, Container, Stack, Typography } from "@mui/material"
 import TriangleParticles from "../../../../components/visual/TriangleParticles"
-import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { TypeAnimation } from 'react-type-animation';
+// import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+// import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const StyledHero = styled("section")(({ theme }) => ({
   width: "100%",
@@ -50,14 +53,17 @@ const Hero = () => {
                 Daniel T. Araújo
               </Typography>
               <Typography variant="h4" textAlign="center">
-                Full Stack Developer
+              <TypeAnimation
+                sequence={[
+                  'Full Stack Developer',
+                  2000,]} wrapper="span" cursor={false}></TypeAnimation>
               </Typography>
               <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
-                <Button startIcon={<InfoOutlinedIcon />} variant="outlined">
-                  About me
+                <Button startIcon={<LinkedInIcon />} variant="outlined">
+                  <Typography>LinkedIn</Typography>
                 </Button>
-                <Button startIcon={<CodeOutlinedIcon />} variant="outlined">
-                  My Projects
+                <Button startIcon={<GitHubIcon />} variant="outlined">
+                  <Typography>GitHub</Typography>
                 </Button>
               </Stack>
             </Stack>
