@@ -6,12 +6,12 @@ let theme = createTheme({
         mode: "dark",
 
         primary: {
-            main: "#562e97ff",
+            main: "#056361",
         },
 
         secondary: {
             // main: "#562e97ff",
-            main: "#c80ec2ff",
+            main: "#61c0bf",
         },
 
         background: {
